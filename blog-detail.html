@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Blog - Penerapan RAG untuk Korporasi - CortexAI</title>
+
+  <!-- Bootstrap 5 CSS & Icons --> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .article-cover { max-height: 420px; width: 100%; object-fit: cover; }
+    .nav-brand-logo { font-weight: 800; letter-spacing: -0.5px; }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- NAVBAR BOOTSTRAP 5 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand nav-brand-logo" href="index.html">Cortex<span class="text-primary">AI</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDetail">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navDetail">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Landing Page</a></li>
+          <li class="nav-item"><a class="nav-link text-primary" href="blog.html">Blog AI</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN ARTICLE -->
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <article class="col-lg-9 bg-white p-4 p-md-5 rounded-4 shadow-sm">
+        
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="blog.html" class="text-decoration-none">Blog AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
+          </ol>
+        </nav>
+
+        <span class="badge bg-primary mb-2"><i class="bi bi-cpu me-1"></i> Generative AI & Architecture</span>
+        <h1 class="fw-bold mb-3">Penerapan Retrieval-Augmented Generation (RAG) untuk Knowledge Base Korporasi</h1>
+
+        <!-- Meta Author & Date -->
+        <div class="d-flex flex-wrap align-items-center gap-3 text-muted border-bottom pb-4 mb-4">
+          <div><i class="bi bi-person-circle text-primary me-1"></i> <strong>Surya Dinata</strong> (Lead AI Architect)</div>
+          <div><i class="bi bi-calendar3 me-1"></i> 14 September 2026</div>
+          <div><i class="bi bi-clock me-1"></i> 5 Menit Baca</div>
+        </div>
+
+        <!-- Cover Image -->
+        <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded-4 mb-4 article-cover" alt="RAG Architecture">
+
+        <!-- Paragraf 1 -->
+        <p class="lead text-secondary">
+          Tantangan terbesar dalam mengadopsi Large Language Model (LLM) di lingkungan perusahaan bukanlah kemampuan model dalam merangkai kalimat, melainkan keterbatasannya terhadap konteks data internal yang bersifat privat dan dinamis.
+        </p>
+
+        <!-- Paragraf 2 -->
+        <p>
+          Model pra-latih (pre-trained model) seringkali mengalami fenomena <em>hallucination</em> atau memberikan informasi yang tampak meyakinkan namun salah secara faktual ketika ditanya mengenai SOP internal, katalog inventaris, atau laporan keuangan kuartal terbaru. Di sinilah metode <strong>Retrieval-Augmented Generation (RAG)</strong> menjadi standar emas. Alih-alih melakukan fine-tuning yang memakan biaya komputasi GPU sangat besar, sistem RAG mengindeks dokumen perusahaan ke dalam <em>vector database</em> (seperti ChromaDB atau Qdrant).
+        </p>
+
+        <!-- Blockquote -->
+        <blockquote class="border-start border-primary border-4 ps-3 py-2 my-4 bg-light rounded-end">
+          <p class="fst-italic mb-1 fw-semibold text-dark">
+            "RAG menghubungkan kecerdasan linguistik model AI modern dengan kebenaran tunggal data bisnis internal perusahaan secara deterministik dan real-time."
+          </p>
+          <footer class="blockquote-footer mt-1 text-primary">Riset AI Cortex 2026</footer>
+        </blockquote>
+
+        <!-- Paragraf 3 -->
+        <p>
+          Ketika pengguna mengajukan pertanyaan, query tersebut diubah menjadi representasi vektor (embeddings), lalu sistem mencari fragmen dokumen yang paling relevan secara semantik. Fragmen dokumen tersebut kemudian disuntikkan ke dalam prompt sebagai konteks acuan sebelum dijawab oleh model LLM. Hasilnya, jawaban model memiliki rujukan sitasi sumber dokumen yang transparan dan dapat diaudit.
+        </p>
+
+        <!-- Alert Info -->
+        <div class="alert alert-info d-flex align-items-center rounded-3 my-4" role="alert">
+          <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+          <div>
+            <strong>Catatan Keamanan:</strong> Pastikan arsitektur RAG menerapkan sistem <em>Role-Based Access Control (RBAC)</em> pada level vector database agar pengguna hanya menerima jawaban dari dokumen yang memiliki izin aksesnya.
+          </div>
+        </div>
+
+        <!-- Poin Penting -->
+        <h4 class="fw-bold mt-4 mb-3">Tiga Keunggulan Utama Pendekatan RAG:</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Biaya Rendah:</strong> Tidak memerlukan retraining ulang model setiap ada perubahan dokumen.</li>
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Transparansi Sitasi:</strong> Jawaban chatbot selalu menyertakan nomor halaman atau judul dokumen rujukan.</li>
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Keamanan Data:</strong> Data sensitif tetap tersimpan di server lokal / private cloud perusahaan.</li>
+        </ul>
+
+        <hr class="my-5">
+
+        <!-- AREA KOMENTAR -->
+        <section class="mt-4">
+          <h4 class="fw-bold mb-4"><i class="bi bi-chat-left-text me-2"></i> Diskusi & Komentar</h4>
+          
+          <form onsubmit="event.preventDefault(); alert('Komentar berhasil dikirim!');" class="mb-5">
+            <div class="d-flex gap-3">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 46px; height: 46px; flex-shrink: 0;">
+                <i class="bi bi-person-fill fs-5"></i>
+              </div>
+              <div class="w-100">
+                <textarea class="form-control mb-2" rows="3" required placeholder="Tulis tanggapan atau pertanyaan teknis seputar artikel ini..."></textarea>
+                <button type="submit" class="btn btn-primary btn-sm px-4 rounded-pill">Kirim Komentar</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Contoh Komentar Pengguna -->
+          <div class="d-flex gap-3 mb-3 border-bottom pb-3">
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+              <i class="bi bi-person"></i>
+            </div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <strong class="text-dark">Arif Wibowo</strong>
+                <small class="text-muted">1 hari yang lalu</small>
+              </div>
+              <p class="text-secondary small mb-0 mt-1">
+                Sangat mencerahkan! Kami di bagian IT sedang mempertimbangkan Milvus vs Qdrant untuk sistem RAG dokumen tender. Ulasan ini sangat relevan.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <a href="blog.html" class="btn btn-outline-light btn-sm mb-3">&larr; Kembali ke Daftar Artikel Blog</a>
+      <p class="text-secondary mb-0 small">&copy; 2026 CortexAI Solusi Mandiri.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
