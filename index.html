@@ -47,7 +47,7 @@
 
 
             <!-- Navigation -->
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
 
                 <a href="#home" class="active">
                     Home
@@ -80,6 +80,20 @@
             <a href="#kontak" class="nav-button">
                 Get Started
             </a>
+
+            <!-- Mobile menu toggle -->
+            <button
+                type="button"
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Buka menu navigasi"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </nav>
 
@@ -246,97 +260,75 @@
                 <div class="services-grid">
 
 
-<!-- CARD 01: AI Chatbot -->
-<article class="service-card">
-    <div class="card-image">
-        <img src="assets/img/chatbot.jpg" alt="AI Chatbot">
-        <span class="card-number">01</span>
-    </div>
-
-    <div class="card-body">
-  
-        <h3>AI Chatbot</h3>
-        <p>
-            Chatbot dan virtual assistant untuk membantu komunikasi dan pelayanan pelanggan secara otomatis.
-        </p>
-        <a href="#kontak">Explore service ↗</a>
-    </div>
-</article>
-
-
-                    <!-- CARD -->
+                    <!-- CARD 01: AI Chatbot -->
                     <article class="service-card">
-                        <div class="card-image"></div>
-                        <img src="assets/img/Automation.jpg" alt="Business Automation">
-                        <span class="card-number">
-                            02
-                        </span>
+                        <div class="card-image">
+                            <img src="assets/img/chatbot.jpg" alt="AI Chatbot">
+                            <span class="card-number">01</span>
+                        </div>
 
-                        <h3>
-                            Business Automation
-                        </h3>
-
-                        <p>
-                            Mengotomatisasi pekerjaan berulang
-                            agar proses bisnis menjadi lebih
-                            cepat dan efisien.
-                        </p>
-
-                        <a href="#kontak">
-                            Explore service ↗
-                        </a>
-
+                        <div class="card-body">
+                            <h3>AI Chatbot</h3>
+                            <p>
+                                Chatbot dan virtual assistant untuk membantu
+                                komunikasi dan pelayanan pelanggan secara otomatis.
+                            </p>
+                            <a href="#kontak">Explore service ↗</a>
+                        </div>
                     </article>
 
 
-
-                    <!-- CARD -->
+                    <!-- CARD 02: Business Automation -->
                     <article class="service-card">
-                        <div class="card-image"></div>
-                        <img src="assets/img/datainteligent.jpg" alt="Data Intelligence">
-                        <span class="card-number">
-                            03
-                        </span>
+                        <div class="card-image">
+                            <img src="assets/img/Automation.jpg" alt="Business Automation">
+                            <span class="card-number">02</span>
+                        </div>
 
-                        <h3>
-                            Data Intelligence
-                        </h3>
-
-                        <p>
-                            Mengubah data menjadi insight yang
-                            membantu bisnis mengambil keputusan
-                            dengan lebih baik.
-                        </p>
-
-                        <a href="#kontak">
-                            Explore service ↗
-                        </a>
-
+                        <div class="card-body">
+                            <h3>Business Automation</h3>
+                            <p>
+                                Mengotomatisasi pekerjaan berulang
+                                agar proses bisnis menjadi lebih
+                                cepat dan efisien.
+                            </p>
+                            <a href="#kontak">Explore service ↗</a>
+                        </div>
                     </article>
 
-
-
-                    <!-- CARD -->
+                    <!-- CARD 03: Data Intelligence -->
                     <article class="service-card">
-<div class="card-image"></div>
-                        <img src="assets/img/Computer Vision.jpg" alt="Computer Vision">
-                        <span class="card-number">
-                            04
-                        </span>
+                        <div class="card-image">
+                            <img src="assets/img/datainteligent.jpg" alt="Data Intelligence">
+                            <span class="card-number">03</span>
+                        </div>
 
-                        <h3>
-                            Computer Vision
-                        </h3>
+                        <div class="card-body">
+                            <h3>Data Intelligence</h3>
+                            <p>
+                                Mengubah data menjadi insight yang
+                                membantu bisnis mengambil keputusan
+                                dengan lebih baik.
+                            </p>
+                            <a href="#kontak">Explore service ↗</a>
+                        </div>
+                    </article>
 
-                        <p>
-                            Sistem AI yang mampu memahami gambar
-                            dan video untuk kebutuhan bisnis.
-                        </p>
+                    <!-- CARD 04: Computer Vision -->
+                    <article class="service-card">
+                        <div class="card-image">
+                            <img src="assets/img/computer-vision.jpg" alt="Computer Vision">
+                            <span class="card-number">04</span>
+                        </div>
 
-                        <a href="#kontak">
-                            Explore service ↗
-                        </a>
-
+                        <div class="card-body">
+                            <h3>Computer Vision</h3>
+                            <p>
+                                Sistem AI yang mampu memahami gambar
+                                dan video untuk kebutuhan bisnis.
+                            </p>
+                            <a href="#kontak">Explore service ↗</a>
+                        </div>
                     </article>
 
                 </div>
@@ -564,6 +556,29 @@
         </div>
 
     </footer>
+
+
+    <!-- =========================
+         MOBILE NAV SCRIPT
+    ========================== -->
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 
 </body>
 </html>
